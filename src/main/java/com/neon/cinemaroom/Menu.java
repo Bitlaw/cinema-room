@@ -6,11 +6,8 @@ public class Menu {
 
     public static void pickOption() {
 
-        int choice;
-
         SellTicket sellTicket = new SellTicket();
 
-        Scanner input = new Scanner(System.in);
         System.out.println("Select one of the following options:");
         System.out.println();
         System.out.println("1. Sell a ticket");
@@ -21,11 +18,13 @@ public class Menu {
         System.out.println();
         System.out.println("Enter a number: ");
 
-        choice = input.nextInt();
+        Scanner input = new Scanner(System.in);
+        int choice = input.nextInt();
+        //input.close();
 
         switch(choice) {
             case 1:
-                sellTicket.ticket();
+                sellTicket.arraySeatsFill();
                 break;
             case 2:
                 System.out.println("Refund a ticket");
@@ -34,12 +33,12 @@ public class Menu {
                 System.out.println("Show statistics");
                 break;
             default:
-                System.out.println("Invalid option! Please enter a number between 1-5.");
-                //Call the menu again or handle the error
-                pickOption(); // Recursive call to show menu again
+                System.out.println("Invalid option!, please enter a number between 1-5.");
+                System.out.println();
+                // Recursive call to show menu again
+                pickOption();
                 break;
         }
-        System.out.println();
 
     }
 
